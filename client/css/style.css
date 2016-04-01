@@ -250,7 +250,7 @@ body {
     margin-left: 20px;
 }
 
-.ui .messages li.friend-with-a-SVAGina .name:after {
+.ui .messages li.friend-with-a-SVAGina .time:after {
     background-color: #62bf6e;
     left: -20px;
     top: 6px;
@@ -271,10 +271,10 @@ body {
 }
 
 .ui .messages li.i .name {
-    margin-right: 20px;
+    margin-right: 4px;
 }
 
-.ui .messages li.i .name:after {
+.ui .messages li.i .time:after {
     background-color: #7bc4ef;
     right: -20px;
     top: 6px;

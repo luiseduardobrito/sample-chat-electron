@@ -32,8 +32,8 @@
         ng-init="isMine = (message.user.id === $Chat.user().id)">
 
       <div class="head">
-        <span class="time" ng-bind="$moment(message.timestamp).fromNow()"></span>
         <span class="name" ng-bind="message.user.name"></span>
+        <span class="time" ng-bind="$moment(message.timestamp).fromNow()"></span>
       </div>
 
       <div class="message" ng-bind="message.body"></div>

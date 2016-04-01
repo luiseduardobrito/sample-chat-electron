@@ -119,6 +119,7 @@ angular
               self.cache.connected = true;
               self.cache.timestamp = Date.now();
               self.cache.room = response.room;
+              self.cache.room.messages = response.messages;
 
               // Put user information in the settings
               self.settings.user(response.user);

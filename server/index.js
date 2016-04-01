@@ -17,7 +17,10 @@ try {
   app.use(express.static(__dirname + '/public'));
 
   // Chatroom
-  var users = [];
+  var room = {
+    users: [],
+    messages: []
+  };
 
   io.on('connection', function (socket) {
 
@@ -38,6 +41,10 @@ try {
       // we tell the client to execute 'new message'
       socket.broadcast.emit('message.received', data);
 
+      // add to the cache
+      room.messages = room.messages || [];
+      room.messages.push(data);
+
     });
 
     // when the client emits 'add user', this listens and executes
@@ -49,7 +56,8 @@ try {
       data.image = 'https://api.adorable.io/avatars/100/' + data.id + '.png';
 
       socket.user = data;
-      users.push(socket.user);
+      room.users = [];
+      room.users.push(socket.user);
 
       // Log the user connected
       console.log('[user.login] ' + socket.user.name + ' (#' + socket.user.id + ')');
@@ -57,13 +65,15 @@ try {
       // Acknowledge the login
       ack({
         user: socket.user,
-        room: users
+        room: room.users,
+        messages: room.messages
       });
 
       // echo globally (all clients) that a person has connected
       socket.broadcast.emit('user.joined', {
         user: socket.user,
-        room: users
+        room: room.users,
+        messages: room.messages
       });
 
     });
@@ -92,14 +102,15 @@ try {
     socket.on('disconnect', function () {
 
       // Remove the user from the room
-      if (users && users.length && users.indexOf(socket.user) >= 0) {
-        users.splice(users.indexOf(socket.user), 1);
+      if (room && room.users && room.users.length && room.users.indexOf(socket.user) >= 0) {
+        room.users.splice(room.users.indexOf(socket.user), 1);
       }
 
       // echo globally that this client has left
       socket.broadcast.emit('user.left', {
         user: socket.user,
-        room: users
+        room: room.users,
+        messages: room.messages
       });
 
 
