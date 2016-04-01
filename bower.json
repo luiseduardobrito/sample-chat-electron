@@ -14,11 +14,13 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "./client/components"
   ],
   "dependencies": {
     "angular": "^1.5.3",
     "jquery": "^2.2.2",
-    "jquery.nicescroll": "^3.6.8"
+    "jquery.nicescroll": "^3.6.8",
+    "angular-route": "^1.5.3"
   }
 }

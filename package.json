@@ -4,7 +4,8 @@
   "description": "Socket.io based chat server and client, implemented in NodeJS ",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/.bin/electron .",
+    "start": "node ./node_modules/.bin/electron .",
+    "server": "node ./server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

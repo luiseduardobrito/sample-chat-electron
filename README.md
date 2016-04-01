@@ -1,4 +1,4 @@
-# mc714-2s2016-lista3
+# mc714-1s2016-lista3
 Socket.io based chat server and clients, implemented in NodeJS for the Distributed Systems course (MC714 1s2016) with Prof. Leandro Villas.
 
 Inspired in the [Example Chat Application](http://chat.socket.io) from the [Socket.io Official Documentation](http://socket.io/get-started/chat/).
