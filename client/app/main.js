@@ -5,7 +5,7 @@ angular
     'ngRoute',
 
     // Custom
-    // DEFAULT.PKG('user'),
+    DEFAULT.PKG('socket')
 
   ])
 
@@ -30,11 +30,12 @@ angular
 
       });
 
-  }).controller('BodyCtrl', ['$rootScope', '$location', '$timeout',
+  }).controller('BodyCtrl', ['$rootScope', '$location', '$timeout', '$Socket',
 
-  function ($rootScope, $location, $timeout) {
+  function ($rootScope, $location, $timeout, $Socket) {
 
-    //$rootScope.$User = $User;
+    // Expose the socket service to the root scope
+    $rootScope.$Socket = $Socket;
 
     /**
      * Gets current angular route or navigate to a new route, if supplied as first argument.

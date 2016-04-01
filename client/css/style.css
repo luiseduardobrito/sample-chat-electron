@@ -67,7 +67,7 @@ body {
 .ui .left-menu {
     width: 29%;
     box-sizing: content-box;
-    padding-right: 1%;
+    padding: 20px 4px 4px;
     height: 100%;
     background: #434753;
 }
