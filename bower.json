@@ -1,0 +1,24 @@
+{
+  "name": "mc714-2s2016-lista3",
+  "description": "Socket.io based chat server and client, implemented in NodeJS",
+  "main": "app.js",
+  "authors": [
+    "Luis <luiseduardo14@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/luiseduardobrito/mc714-2s2016-lista3",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "jquery": "^2.2.2",
+    "jquery.nicescroll": "^3.6.8"
+  }
+}
