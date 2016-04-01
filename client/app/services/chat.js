@@ -17,6 +17,7 @@ angular
       // The initial service cache
       // TODO: Get from local storage
       this.cache = {
+        room: [],
         user: null,
         connected: false
       };
@@ -36,10 +37,15 @@ angular
 
       // Clears the cache
       this.cache = {
+        room: [],
         user: null,
         connected: false
       }
 
+    };
+
+    ChatService.prototype.connected = function () {
+      return this.cache && this.cache.connected;
     };
 
     /**
