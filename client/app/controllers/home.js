@@ -1,9 +1,10 @@
 angular
   .module(DEFAULT.PKG())
   .controller('HomeCtrl',
-    ['$scope', function ($scope) {
+    ['$scope', '$Chat', function ($scope, $Chat) {
 
-      var NYLM, claerResizeScroll, conf, getRandomInt, insertI, lol;
+      var conf, lol;
+      $scope.input = {};
 
       conf = {
         cursorcolor: "#696c75",
@@ -17,46 +18,49 @@ angular
         cursorborder: "none"
       };
 
-      NYLM = ["Уходи дверь закрой", "У меня теперь другой", "Все для тебя", "Мне не нужен больше твой номер в книжке записной", "Владимирский централ, ветер сука", "Ты ушол, а я текла", "Ты пришол в красный день календаря", "бла бла", ")", "умри", "ой все.", "ой все.", "ой все.", "Ты говоришь ТОЧНЕЕ пишешьСя сам с собой"];
-
-      getRandomInt = function (min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      };
-
-      claerResizeScroll = function () {
-        jQuery("#texxt").val("");
-        jQuery(".messages").getNiceScroll(0).resize();
-        return jQuery(".messages").getNiceScroll(0).doScrollTop(999999, 999);
-      };
-
-      insertI = function () {
-        var innerText, otvet;
-        innerText = $.trim($("#texxt").val());
-        if (innerText !== "") {
-          jQuery(".messages").append("<li class=\"i\"><div class=\"head\"><span class=\"time\">" + (new Date().getHours()) + ":" + (new Date().getMinutes()) + " AM, Today</span><span class=\"name\"> Буль</span></div><div class=\"message\">" + innerText + "</div></li>");
-          claerResizeScroll();
-          return otvet = setInterval(function () {
-            jQuery(".messages").append("<li class=\"friend-with-a-SVAGina\"><div class=\"head\"><span class=\"name\">Юния  </span><span class=\"time\">" + (new Date().getHours()) + ":" + (new Date().getMinutes()) + " AM, Today</span></div><div class=\"message\">" + NYLM[getRandomInt(0, NYLM.length - 1)] + "</div></li>");
-            claerResizeScroll();
-            return clearInterval(otvet);
-          }, getRandomInt(2500, 500));
-        }
-      };
-
       jQuery(document).ready(function () {
+
         jQuery(".list-friends").niceScroll(conf);
         jQuery(".messages").niceScroll(lol);
-        jQuery("#texxt").keypress(function (e) {
+
+        jQuery("#text").keypress(function (e) {
+
           if (e.keyCode === 13) {
-            insertI();
+
+            // TODO: Send message
+
             return false;
           }
-        });
 
-        return jQuery(".send").click(function () {
-          return insertI();
         });
 
       });
+
+      $scope.send = function (msg) {
+
+        if (msg && msg.body && msg.body.length) {
+
+          // Save backup for error
+          var bkp = angular.copy(msg);
+
+          // TODO
+          $Chat
+            .send(msg)
+            .then(function (response) {
+
+              // TODO
+
+            }, function (error) {
+
+              // TODO
+              $scope.input = bkp;
+
+            });
+
+          $scope.input = {};
+
+        }
+
+      };
 
     }]);

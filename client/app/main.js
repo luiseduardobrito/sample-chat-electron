@@ -6,6 +6,7 @@ angular
 
     // Custom
     DEFAULT.PKG('settings'),
+    DEFAULT.PKG('moment'),
     DEFAULT.PKG('socket'),
     DEFAULT.PKG('chat')
 
@@ -32,9 +33,9 @@ angular
 
       });
 
-  }).controller('BodyCtrl', ['$rootScope', '$location', '$timeout', '$Socket', '$Chat',
+  }).controller('BodyCtrl', ['$rootScope', '$location', '$timeout', '$Socket', '$Chat', '$moment',
 
-  function ($rootScope, $location, $timeout, $Socket, $Chat) {
+  function ($rootScope, $location, $timeout, $Socket, $Chat, $moment) {
 
     /**
      * Gets current angular route or navigate to a new route, if supplied as first argument.
@@ -51,5 +52,6 @@ angular
     // Expose the services to the root scope
     $rootScope.$Socket = $Socket;
     $rootScope.$Chat = $Chat;
+    $rootScope.$moment = $moment;
 
   }]);

@@ -1,10 +1,10 @@
 <div class="left-menu">
-  <form action="#" class="search">
-    <input placeholder="Search by name..." type="search" name="" id="">
+  <form action="#" class="search" ng-init="name = ''">
+    <input placeholder="Search by name..." type="search" name="" id="" ng-model="name">
     <input type="submit" value="&#xf002;">
   </form>
   <menu class="list-friends">
-    <li ng-repeat="user in $Chat.room()">
+    <li ng-repeat="user in $Chat.room() | filter:name">
       <img width="50" height="50" src="http://cs625730.vk.me/v625730358/1126a/qEjM1AnybRA.jpg">
       <div class="info">
         <div class="user" ng-bind="user.name"></div>
@@ -25,27 +25,25 @@
     </div>
     <div class="info" style="float: right; width: 250px; text-align: right; padding: 12px" style="float: right;">
       <div class="name" ng-bind="$Chat.user().name"></div>
-      <div class="count">online for 6 minutes</div>
+      <div class="count">online for {{ $moment($Chat.user().timestamp).fromNow(true) }}</div>
     </div>
   </div>
   <ul class="messages">
-    <li class="i">
+
+    <li ng-class="{'i': true, 'friend-with-a-SVAGina': !isMine}" ng-repeat="message in $Chat.room().messages"
+        ng-init="isMine = (message.user.id === $Chat.user().id)">
+
       <div class="head">
-        <span class="time">10:14 AM, Today</span>
-        <span class="name" ng-bind="$Chat.user().name"></span>
+        <span class="time" ng-bind="$moment(message.timestamp).fromNow()"></span>
+        <span class="name" ng-bind="message.user.name"></span>
       </div>
-      <div class="message">М не счастья..</div>
-    </li>
-    <li class="friend-with-a-SVAGina">
-      <div class="head">
-        <span class="name">Letícia</span>
-        <span class="time">10:15 AM, Today</span>
-      </div>
-      <div class="message">чего тебе?</div>
+
+      <div class="message" ng-bind="message.body"></div>
+
     </li>
   </ul>
   <div class="write-form">
-    <textarea placeholder="Type your message" name="e" id="texxt" rows="2"></textarea>
-    <span class="send">Send</span>
+    <textarea placeholder="Type your message..." name="e" rows="2" ng-model="input.body"></textarea>
+    <span class="send" ng-click="send(input)">Send</span>
   </div>
 </div>

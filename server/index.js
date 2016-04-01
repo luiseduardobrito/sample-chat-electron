@@ -22,13 +22,21 @@ try {
   io.on('connection', function (socket) {
 
     // when the client emits 'new message', this listens and executes
-    socket.on('message.send', function (data) {
+    socket.on('message.send', function (data, ack) {
+
+      // Log the message received
+      console.log('[message.send] ' + socket.user.name + ': ' + data.body);
+
+      // Prepare the message
+      data.id = hat();
+      data.timestamp = Date.now();
+      data.user = socket.user;
+
+      // Ack the user
+      ack(data);
 
       // we tell the client to execute 'new message'
-      socket.broadcast.emit('message.received', {
-        user: socket.user,
-        message: data
-      });
+      socket.broadcast.emit('message.received', data);
 
     });
 
@@ -40,6 +48,9 @@ try {
       data.id = data.id || hat();
       socket.user = data;
       users.push(socket.user);
+
+      // Log the user connected
+      console.log('[user.login] ' + socket.user.name + ' (#' + socket.user.id + ')');
 
       // Acknowledge the login
       ack({
