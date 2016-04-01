@@ -1,3 +1,4 @@
+var pkg = require('../package');
 var hat = require('hat');
 
 // Setup basic express server
@@ -5,7 +6,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var port =  process.env.PORT || require('../config/default').port || 3000;
+var port = process.env.PORT || require('../config/default').port || 3000;
 
 try {
   server.listen(port, function () {
@@ -88,6 +89,21 @@ try {
         room: users
       });
 
+
+    });
+
+    var timestamp = Date.now();
+
+    app.get('/', function (req, res) {
+
+      var info = JSON.parse(JSON.stringify(pkg));
+
+      delete info.scripts;
+      delete info.main;
+      info.dependencies = Object.keys(info.dependencies);
+      info.uptime = Date.now() - timestamp;
+
+      res.json(info)
 
     });
 
