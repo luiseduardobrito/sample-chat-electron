@@ -20,12 +20,7 @@ var DEFAULT = {
     /**
      * The API base url.
      */
-    /* @if NODE_ENV!='DEVELOPMENT' **
-     BASE_URL: "https://radiant-river-70847.herokuapp.com",
-     /* @endif */
-    /* @if NODE_ENV='DEVELOPMENT' **
-     BASE_URL: "http://localhost:3000/",
-     /* @endif */
+    BASE_URL: process.env.NODE_ENV !== 'DEVELOPMENT' ? "https://radiant-river-70847.herokuapp.com" : "http://localhost:3000/",
 
   },
 

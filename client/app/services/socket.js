@@ -1,8 +1,10 @@
 angular
   .module(DEFAULT.PKG('socket'), [])
-  .factory('$Socket', [function() {
+  .factory('$Socket', [function () {
+
+    console.log('$Socket', 'BASE_URL: ' + DEFAULT.API.BASE_URL);
 
     // Connect to the Socket server
-    return new io(DEFAULT.API.BASE_URL);
+    return {io: new io(DEFAULT.API.BASE_URL)};
 
   }]);
