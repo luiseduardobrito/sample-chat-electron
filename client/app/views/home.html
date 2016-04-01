@@ -28,7 +28,7 @@
   </div>
   <ul class="messages">
 
-    <li ng-class="{'i': true, 'friend-with-a-SVAGina': !isMine}" ng-repeat="message in $Chat.room().messages"
+    <li ng-class="{'i': isMine, 'friend-with-a-SVAGina': !isMine}" ng-repeat="message in $Chat.messages()"
         ng-init="isMine = (message.user.id === $Chat.user().id)">
 
       <div class="head">

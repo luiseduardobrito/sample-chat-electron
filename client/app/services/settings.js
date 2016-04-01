@@ -3,7 +3,7 @@
  */
 angular
   .module(DEFAULT.PKG('settings'), ['ngStorage'])
-  .service('$Settings', ['$localStorage', function ($localStorage) {
+  .service('$Settings', ['$sessionStorage', function ($storage) {
 
     /**
      * Instantiates a new Settings service.
@@ -53,6 +53,6 @@ angular
     };
 
     // Create a new settings service.
-    return new SettingsService($localStorage);
+    return new SettingsService($storage);
 
   }]);

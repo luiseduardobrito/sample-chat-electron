@@ -31,6 +31,7 @@ angular
 
         // Register socket callbacks
         self.socket.on('user.joined', wrap(self.onUserJoined));
+        self.socket.on('user.left', wrap(self.onUserLeft));
         self.socket.on('message.received', wrap(self.onMessageReceived));
         self.socket.on('connect', wrap(self.connect));
         self.socket.on('disconnect', wrap(self.onDisconnect));
@@ -53,6 +54,7 @@ angular
         this.cache = {
           room: [],
           user: user,
+          messages: [],
           timestamp: null,
           connected: false
         };
@@ -98,6 +100,15 @@ angular
       };
 
       /**
+       * Gets the current message list in the room.
+       *
+       * @returns {Array}
+       */
+      ChatService.prototype.messages = function () {
+        return this.cache.messages || [];
+      };
+
+      /**
        * Connect to the chat room.
        */
       ChatService.prototype.connect = function (data, ack) {
@@ -119,7 +130,7 @@ angular
               self.cache.connected = true;
               self.cache.timestamp = Date.now();
               self.cache.room = response.room;
-              self.cache.room.messages = response.messages;
+              self.cache.messages = response.messages;
 
               // Put user information in the settings
               self.settings.user(response.user);
@@ -224,7 +235,7 @@ angular
         if (self.connected()) {
 
           // Prepare message and add to chat
-          self.cache.room.messages = self.cache.room.messages || [];
+          self.cache.messages = self.cache.messages || [];
 
           // Send the message through the socket
           self.socket.emit('message.send', request, function (response) {
@@ -232,7 +243,7 @@ angular
             // TODO: Wrap emitter in socket service
             $rootScope.$apply(function () {
 
-              self.cache.room.messages.push(response);
+              self.cache.messages.push(response);
 
               q.resolve(response);
               ack(response);
@@ -277,10 +288,28 @@ angular
        */
       ChatService.prototype.onUserJoined = function (data, ack) {
 
+        var self = this;
         console.log('onUserJoined', data);
 
-        // TODO: notify observers
-        (ack || angular.noop)();
+        $rootScope.$apply(function () {
+          self.cache.room = data.room;
+          (ack || angular.noop)();
+        });
+
+      };
+
+      /**
+       * Handles the user left callback in the Socket.
+       */
+      ChatService.prototype.onUserLeft = function (data, ack) {
+
+        var self = this;
+        console.log('onUserLeft', data);
+
+        $rootScope.$apply(function () {
+          self.cache.room = data.room;
+          (ack || angular.noop)();
+        });
 
       };
 
@@ -289,10 +318,13 @@ angular
        */
       ChatService.prototype.onMessageReceived = function (data, ack) {
 
+        var self = this;
         console.log('onMessageReceived', data);
 
-        // TODO: notify observers
-        (ack || angular.noop)();
+        $rootScope.$apply(function () {
+          self.cache.messages.push(data);
+          (ack || angular.noop)();
+        });
 
       };
 

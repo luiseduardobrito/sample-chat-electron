@@ -27,9 +27,6 @@ try {
     // when the client emits 'new message', this listens and executes
     socket.on('message.send', function (data, ack) {
 
-      // Log the message received
-      console.log('[message.send] ' + socket.user.name + ': ' + data.body);
-
       // Prepare the message
       data.id = hat();
       data.timestamp = Date.now();
@@ -45,6 +42,9 @@ try {
       room.messages = room.messages || [];
       room.messages.push(data);
 
+      // Log the message received
+      console.log('[message.send] ' + socket.user.name + ': ' + data.body);
+
     });
 
     // when the client emits 'add user', this listens and executes
@@ -56,11 +56,8 @@ try {
       data.image = 'https://api.adorable.io/avatars/100/' + data.id + '.png';
 
       socket.user = data;
-      room.users = [];
+      room.users = room.users || [];
       room.users.push(socket.user);
-
-      // Log the user connected
-      console.log('[user.login] ' + socket.user.name + ' (#' + socket.user.id + ')');
 
       // Acknowledge the login
       ack({
@@ -75,6 +72,9 @@ try {
         room: room.users,
         messages: room.messages
       });
+
+      // Log the user connected
+      console.log('[user.login] ' + socket.user.name + ' (#' + socket.user.id + ')');
 
     });
 
@@ -113,6 +113,8 @@ try {
         messages: room.messages
       });
 
+      // Log the user connected
+      console.log('[user.left] ' + socket.user.name + ' (#' + socket.user.id + ')');
 
     });
 

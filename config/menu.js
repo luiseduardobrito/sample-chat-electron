@@ -1,3 +1,9 @@
+const path = require('path');
+const electron = require('electron');
+
+const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
+const Menu = electron.Menu;
+
 module.exports = function (app) {
 
   var template = [
@@ -34,7 +40,42 @@ module.exports = function (app) {
         {
           label: 'New',
           accelerator: 'CmdOrCtrl+N',
-          role: 'create'
+          click: function () {
+
+            // Create the browser window.
+            var win = new BrowserWindow(require('./default').window);
+
+            // Open the DevTools.
+            if (process.env.NODE_ENV === 'DEVELOPMENT') {
+              win.webContents.openDevTools({
+                detach: true
+              });
+            }
+
+            // Emitted when the window is closed.
+            win.on('closed', function () {
+
+              // Dereference the window object, usually you would store windows
+              // in an array if your app supports multi windows, this is the time
+              // when you should delete the corresponding element.
+              //if (win && windows.indexOf(win) >= 0) {
+              //  windows.splice(windows.indexOf(win), 1);
+              //  win = null;
+              //}
+
+            });
+
+            var menu = Menu.buildFromTemplate(require('./menu')(app));
+            Menu.setApplicationMenu(menu);
+
+            win.setMenu(menu);
+
+            // and load the index.html of the app.
+            win.loadURL('file://' + path.join(__dirname, '../client/index.html'));
+            //windows.push(win);
+
+
+          }
         },
         {
           label: 'Minimize',
