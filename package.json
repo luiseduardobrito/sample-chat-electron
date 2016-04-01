@@ -4,7 +4,8 @@
   "description": "Socket.io based chat server and client, implemented in NodeJS ",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./node_modules/.bin/electron .",
+    "server": "node ./server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/luiseduardobrito/mc714-2s2016-lista3#readme",
   "dependencies": {
+    "electron-prebuilt": "^0.37.3",
     "express": "^4.13.4",
     "socket.io": "^1.4.5"
   }
