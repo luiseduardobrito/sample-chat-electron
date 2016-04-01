@@ -36,7 +36,7 @@ app.on('window-all-closed', function () {
 app.on('ready', function () {
 
   // Create the browser window.
-  var win = new BrowserWindow(require('./config/window'));
+  var win = new BrowserWindow(require('./config/default').window);
 
   // Open the DevTools.
   if (process.env.NODE_ENV === 'DEVELOPMENT') {
@@ -51,7 +51,7 @@ app.on('ready', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    if(win && windows.indexOf(win) >=0) {
+    if (win && windows.indexOf(win) >= 0) {
       windows.splice(windows.indexOf(win), 1);
       win = null;
     }

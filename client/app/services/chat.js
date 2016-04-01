@@ -2,50 +2,80 @@
  * Created by luis on 4/1/16.
  */
 angular
-  .module(DEFAULT.PKG('chat'), [DEFAULT.PKG('socket')])
-  .service('$Chat', ['$Socket', '$rootScope', function ($Socket, $rootScope) {
+  .module(DEFAULT.PKG('chat'), [DEFAULT.PKG('socket'), DEFAULT.PKG('settings')])
+  .service('$Chat', ['$Socket', '$Settings', '$rootScope', function ($Socket, $Settings, $rootScope) {
 
     /**
      * Instantiates a new Chat Service.
      *
      * @constructor
      */
-    var ChatService = function (socket) {
+    var ChatService = function (socket, settings) {
 
-      this.socket = socket;
+      var self = this;
+
+      self.socket = socket;
+      self.settings = settings;
 
       // The initial service cache
       // TODO: Get from local storage
-      this.cache = {
-        room: [],
-        user: null,
-        connected: false
+      self.cache = self.clear(self.settings.user());
+
+      // Wrap the socket requests
+      var wrap = function (fn) {
+        return function () {
+          (fn || angular.noop).apply(self, arguments)
+        };
       };
 
       // Register socket callbacks
-      this.socket.on('user.login', this.onLogin);
-      this.socket.on('user.joined', this.onUserJoined);
-      this.socket.on('message.received', this.onMessageReceived);
-      this.socket.on('disconnect', this.onDisconnect);
+      self.socket.on('user.joined', wrap(self.onUserJoined));
+      self.socket.on('message.received', wrap(self.onMessageReceived));
+      self.socket.on('connect', wrap(self.connect));
+      self.socket.on('disconnect', wrap(self.onDisconnect));
+
+      // Start the authentication
+      self.autoconnect();
 
     };
 
     /**
      * Clears the chat service cache.
+     *
+     * @param {Object} [user] The user to initialize the cache with
+     *
+     * @returns {Object}
      */
-    ChatService.prototype.clear = function clear() {
+    ChatService.prototype.clear = function clear(user) {
 
       // Clears the cache
       this.cache = {
         room: [],
-        user: null,
+        user: user,
+        timestamp: null,
         connected: false
-      }
+      };
+
+      return this.cache;
 
     };
 
+    /**
+     * Check if the user is currently logged in.
+     *
+     * @returns {boolean}
+     */
     ChatService.prototype.connected = function () {
-      return this.cache && this.cache.connected;
+      return !!(this.cache && this.cache.connected);
+    };
+
+    /**
+     * Gets the timestamp from the last connection.
+     *
+     * @returns {null|Number}
+     */
+    ChatService.prototype.timestamp = function () {
+      return this.cache.timestamp;
     };
 
     /**
@@ -54,7 +84,7 @@ angular
      * @returns {{}|null}
      */
     ChatService.prototype.user = function () {
-      return this.cache.user;
+      return this.settings.user();
     };
 
     /**
@@ -73,21 +103,101 @@ angular
 
       var self = this;
 
+      // Put user information in the settings
+      self.settings.user(data);
+
       // TODO: notify observers
-      self.socket.emit('user.login', data, function (response) {
+      if (self.socket.connected && !self.connected() && self.user()) {
 
-        $rootScope.$apply(function () {
+        self.socket.emit('user.login', self.user(), function (response) {
 
-          self.cache.connected = true;
-          self.cache.user = response.user;
-          self.cache.room = response.room;
+          // TODO: Wrap emitter in socket service
+          $rootScope.$apply(function () {
 
-          console.log(response);
-          (ack || angular.noop)();
+            // Put the chat information in the cache
+            self.cache.connected = true;
+            self.cache.timestamp = Date.now();
+            self.cache.room = response.room;
+
+            // Put user information in the settings
+            self.settings.user(data);
+
+            // Log the result and ack
+            console.log(response);
+            (ack || angular.noop)();
+
+          });
 
         });
 
-      });
+      } else if (!self.socket.connected) {
+
+        // Connect the socket
+        self.socket.connect();
+
+      }
+
+    };
+
+    /**
+     * Guide the user through the connection.
+     */
+    ChatService.prototype.autoconnect = function () {
+
+      var self = this;
+
+      // Connect the chat using the OS user name
+      if (!self.connected() && !self.user()) {
+
+        // TODO: Put smalltalk in service
+        smalltalk.prompt('Get started', 'What\'s your name?', process.env.USER || process.env.username || 'John Doe').then(function (value) {
+
+          self.connect({name: value});
+
+        }, function () {
+
+          try {
+
+            // Quit the whole app, without a name there's nothing to do
+            require('electron').remote.app.quit();
+
+          } catch (e) {
+
+            // If could not quit the app, at least close the window
+            console.error(e);
+            window.close();
+
+          }
+
+        });
+
+      } else if (!self.connected()) {
+
+        // Connect with local storage information
+        self.connect(self.user());
+
+      }
+
+    };
+
+    /**
+     * Disconnect from the current session.
+     *
+     * @param data
+     * @param ack
+     */
+    ChatService.prototype.disconnect = function (data, ack) {
+
+      var self = this;
+
+      try {
+
+        self.settings.clear();
+        self.socket.close();
+
+      } catch (e) {
+        console.warn(e);
+      }
 
     };
 
@@ -96,12 +206,14 @@ angular
      */
     ChatService.prototype.onDisconnect = function (data, ack) {
 
-      console.log('onDisconnect', data);
+      var self = this;
 
       // TODO: notify observers
-      alert('Disconnected!');
-      clear();
+      self.clear();
+      self.autoconnect();
 
+
+      console.log('onDisconnect', data);
       (ack || angular.noop)();
 
     };
@@ -130,6 +242,7 @@ angular
 
     };
 
-    return new ChatService($Socket.io);
+    // Instantiates a new chat service
+    return new ChatService($Socket.io, $Settings);
 
   }]);

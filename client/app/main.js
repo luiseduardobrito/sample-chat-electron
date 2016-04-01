@@ -5,6 +5,7 @@ angular
     'ngRoute',
 
     // Custom
+    DEFAULT.PKG('settings'),
     DEFAULT.PKG('socket'),
     DEFAULT.PKG('chat')
 
@@ -50,17 +51,5 @@ angular
     // Expose the services to the root scope
     $rootScope.$Socket = $Socket;
     $rootScope.$Chat = $Chat;
-
-    // Connect the chat using the OS user name
-    smalltalk.prompt('Login', 'What\'s your name?', process.env.USER || process.env.username || 'John Doe').then(function (value) {
-
-      $rootScope.$Chat.connect({name: value});
-
-    }, function () {
-
-      // Quit the shole app, without a name there's nothing to do
-      require('electron').remote.app.quit();
-
-    });
 
   }]);

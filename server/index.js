@@ -5,17 +5,17 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var port = process.env.PORT || 3000;
+var port = require('../config/default').port || process.env.PORT || 3000;
 
 try {
   server.listen(port, function () {
     console.log('Server listening at port %d', port);
   });
 
-// Routing
+  // Routing
   app.use(express.static(__dirname + '/public'));
 
-// Chatroom
+  // Chatroom
   var users = [];
 
   io.on('connection', function (socket) {
@@ -36,7 +36,7 @@ try {
 
       // we store the user data in the socket session for this client
       data = data || {};
-      data.id = hat();
+      data.id = data.id || hat();
       socket.user = data;
       users.push(socket.user);
 

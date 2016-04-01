@@ -164,6 +164,10 @@ body {
     border-radius: 50%;
 }
 
+.ui .list-friends .inactive {
+    color: #696c75;
+}
+
 .ui .list-friends .off:after {
     background: #fd8064;
 }
