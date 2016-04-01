@@ -182,6 +182,7 @@ body {
 }
 
 .ui .messages {
+    width: 100%;
     height: calc(100% - 70px - 150px);
     list-style: none;
     border: 2px solid #fff;

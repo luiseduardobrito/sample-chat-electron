@@ -148,7 +148,7 @@ angular
 
               // Put the chat information in the cache
               self.cache.connected = true;
-              self.cache.timestamp = Date.now();
+              self.cache.timestamp = self.cache.timestamp || Date.now();
               self.cache.room = response.room;
               self.cache.messages = response.messages;
 
@@ -257,6 +257,9 @@ angular
           // Prepare message and add to chat
           self.cache.messages = self.cache.messages || [];
 
+          // Set myself typing
+          self.isTyping(self.user(), false);
+
           // Send the message through the socket
           self.socket.emit('message.send', request, function (response) {
 
@@ -268,11 +271,10 @@ angular
               q.resolve(response);
               ack(response);
 
-              // Scroll to bottom safely
               setTimeout(function () {
-                var msgs = jQuery('.messages');
-                msgs.getNiceScroll(0).doScrollTop(msgs.height());
-              }, 10);
+                jQuery(".messages").getNiceScroll(0).resize();
+                return jQuery(".messages").getNiceScroll(0).doScrollTop(999999, 999);
+              }, 100);
 
             });
 
@@ -303,6 +305,7 @@ angular
       ChatService.prototype.typing = function (data, ack) {
 
         var self = this;
+        data = data || {};
         var request = angular.copy(data);
 
         ack = ack || angular.noop;
@@ -310,6 +313,9 @@ angular
         var q = $q.defer();
 
         if (self.connected()) {
+
+          // Set myself typing
+          self.isTyping(self.user(), data.typing);
 
           // Send the message through the socket
           self.socket.emit('user.typing', request, function (response) {
@@ -418,9 +424,17 @@ angular
           self.cache.messages.push(data);
           (ack || angular.noop)();
 
-          // Scroll to bottom safely
-          var msgs = jQuery('.messages');
-          msgs.getNiceScroll(0).doScrollTop(msgs.height());
+          setTimeout(function () {
+
+            // Scroll to bottom safely
+            //var msgs = jQuery('.messages');
+            //var last = jQuery('ul.messages li').last();
+            //msgs.scrollTop(last.position().top + last.height());
+
+            jQuery(".messages").getNiceScroll(0).resize();
+            return jQuery(".messages").getNiceScroll(0).doScrollTop(999999, 999);
+
+          }, 100);
 
         });
 
