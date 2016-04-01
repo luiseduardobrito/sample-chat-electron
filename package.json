@@ -1,24 +1,27 @@
 {
-  "name": "mc714-2s2016-lista3",
+  "name": "mc714-1s2016-lista3",
   "version": "0.0.1",
   "description": "Socket.io based chat server and client, implemented in NodeJS ",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./node_modules/.bin/electron .",
+    "server": "node ./server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luiseduardobrito/mc714-2s2016-lista3.git"
+    "url": "git+https://github.com/luiseduardobrito/mc714-1s2016-lista3.git"
   },
   "author": "Luis <luiseduardo14@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luiseduardobrito/mc714-2s2016-lista3/issues"
+    "url": "https://github.com/luiseduardobrito/mc714-1s2016-lista3/issues"
   },
-  "homepage": "https://github.com/luiseduardobrito/mc714-2s2016-lista3#readme",
+  "homepage": "https://github.com/luiseduardobrito/mc714-1s2016-lista3#readme",
   "dependencies": {
+    "electron-prebuilt": "^0.37.3",
     "express": "^4.13.4",
+    "hat": "0.0.3",
     "socket.io": "^1.4.5"
   }
 }

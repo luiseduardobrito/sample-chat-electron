@@ -1,0 +1,51 @@
+<div class="left-menu">
+  <form action="#" class="search">
+    <input placeholder="Search by name..." type="search" name="" id="">
+    <input type="submit" value="&#xf002;">
+  </form>
+  <menu class="list-friends">
+    <li ng-repeat="user in $Chat.room()">
+      <img width="50" height="50" src="http://cs625730.vk.me/v625730358/1126a/qEjM1AnybRA.jpg">
+      <div class="info">
+        <div class="user" ng-bind="user.name"></div>
+        <div class="status on">
+          online
+
+          <a class="status inactive" href="javascript:void(0);" ng-click="$Chat.disconnect()">(Logout)</a>
+
+        </div>
+      </div>
+    </li>
+  </menu>
+</div>
+<div class="chat">
+  <div class="top">
+    <div class="avatar" style="float: right; padding-right: 12px">
+      <img width="50" height="50" src="http://cs625730.vk.me/v625730358/1126a/qEjM1AnybRA.jpg">
+    </div>
+    <div class="info" style="float: right; width: 250px; text-align: right; padding: 12px" style="float: right;">
+      <div class="name" ng-bind="$Chat.user().name"></div>
+      <div class="count">online for 6 minutes</div>
+    </div>
+  </div>
+  <ul class="messages">
+    <li class="i">
+      <div class="head">
+        <span class="time">10:14 AM, Today</span>
+        <span class="name" ng-bind="$Chat.user().name"></span>
+      </div>
+      <div class="message">М не счастья..</div>
+    </li>
+    <li class="friend-with-a-SVAGina">
+      <div class="head">
+        <span class="name">Letícia</span>
+        <span class="time">10:15 AM, Today</span>
+      </div>
+      <div class="message">чего тебе?</div>
+    </li>
+  </ul>
+  <div class="write-form">
+    <textarea placeholder="Type your message" name="e" id="texxt" rows="2"></textarea>
+    <span class="send">Send</span>
+  </div>
+</div>
