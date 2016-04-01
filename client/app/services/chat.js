@@ -31,6 +31,7 @@ angular
 
         // Register socket callbacks
         self.socket.on('user.joined', wrap(self.onUserJoined));
+        self.socket.on('user.typing', wrap(self.onUserTyping));
         self.socket.on('user.left', wrap(self.onUserLeft));
         self.socket.on('message.received', wrap(self.onMessageReceived));
         self.socket.on('connect', wrap(self.connect));
@@ -54,6 +55,7 @@ angular
         this.cache = {
           room: [],
           user: user,
+          typing: [],
           messages: [],
           timestamp: null,
           connected: false
@@ -106,6 +108,24 @@ angular
        */
       ChatService.prototype.messages = function () {
         return this.cache.messages || [];
+      };
+
+      /**
+       * Gets or sets if message is typing.
+       *
+       * @param user
+       * @param state
+       *
+       * @returns {boolean}
+       */
+      ChatService.prototype.isTyping = function (user, state) {
+
+        if (state !== undefined) {
+          this.cache.typing[user.id || user] = !!state;
+        }
+
+        return !!(this.cache.typing[user.id || user]);
+
       };
 
       /**
@@ -248,6 +268,60 @@ angular
               q.resolve(response);
               ack(response);
 
+              // Scroll to bottom safely
+              setTimeout(function () {
+                var msgs = jQuery('.messages');
+                msgs.getNiceScroll(0).doScrollTop(msgs.height());
+              }, 10);
+
+            });
+
+          });
+
+        } else {
+
+          $timeout(function () {
+
+            q.reject(new Error('Chat is not connected'));
+
+          }, 10);
+
+        }
+
+        return q.promise;
+
+      };
+
+      /**
+       * Set user is typing or not.
+       *
+       * @param {Object} data The request data
+       * @param {Boolean} data.typing The state
+       * @param {Function} [ack]
+       * @returns {Promise}
+       */
+      ChatService.prototype.typing = function (data, ack) {
+
+        var self = this;
+        var request = angular.copy(data);
+
+        ack = ack || angular.noop;
+
+        var q = $q.defer();
+
+        if (self.connected()) {
+
+          // Send the message through the socket
+          self.socket.emit('user.typing', request, function (response) {
+
+            // TODO: Wrap emitter in socket service
+            $rootScope.$apply(function () {
+
+              //self.cache.messages.push(response);
+
+              q.resolve(response);
+              ack(response);
+
             });
 
           });
@@ -299,6 +373,23 @@ angular
       };
 
       /**
+       * Handles the user typing callback in the Socket.
+       */
+      ChatService.prototype.onUserTyping = function (data, ack) {
+
+        var self = this;
+        console.log('onUserTyping', data);
+
+        $rootScope.$apply(function () {
+
+          self.isTyping(data.user, data.typing);
+          (ack || angular.noop)();
+
+        });
+
+      };
+
+      /**
        * Handles the user left callback in the Socket.
        */
       ChatService.prototype.onUserLeft = function (data, ack) {
@@ -322,8 +413,15 @@ angular
         console.log('onMessageReceived', data);
 
         $rootScope.$apply(function () {
+
+          self.isTyping(data.user, false);
           self.cache.messages.push(data);
           (ack || angular.noop)();
+
+          // Scroll to bottom safely
+          var msgs = jQuery('.messages');
+          msgs.getNiceScroll(0).doScrollTop(msgs.height());
+
         });
 
       };

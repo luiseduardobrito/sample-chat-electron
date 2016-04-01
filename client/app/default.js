@@ -25,6 +25,13 @@ var DEFAULT = {
   },
 
   /**
+   * The default typing timeout.
+   */
+  CHAT: {
+    TYPING_TIMEOUT: 2000
+  },
+
+  /**
    * Gets package name for supplied submodule. If none supplied
    * the main package will be returned.
    *

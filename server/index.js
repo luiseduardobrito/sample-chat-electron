@@ -86,18 +86,10 @@ try {
         typing: data.typing
       });
 
-    });
-
-    // when the client emits 'stop typing', we broadcast it to others
-    socket.on('user.typing', function () {
-
-      socket.broadcast.emit('user.typing', {
-        user: socket.user,
-        typing: data.typing
-      });
+      // Log the user connected
+      console.log('[user.typing] ' + socket.user.name + (data.typing ? ' is' : ' stopped') + ' typing (#' + socket.user.id + ')');
 
     });
-
     // when the user disconnects.. perform this
     socket.on('disconnect', function () {
 
