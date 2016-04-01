@@ -166,6 +166,7 @@ body {
 
 .ui .list-friends .inactive {
     color: #696c75;
+    margin-left: 8px;
 }
 
 .ui .list-friends .off:after {

@@ -121,7 +121,7 @@ angular
               self.cache.room = response.room;
 
               // Put user information in the settings
-              self.settings.user(data);
+              self.settings.user(response.user);
 
               // Log the result and ack
               console.log(response);

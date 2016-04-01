@@ -46,6 +46,8 @@ try {
       // we store the user data in the socket session for this client
       data = data || {};
       data.id = data.id || hat();
+      data.image = 'https://api.adorable.io/avatars/100/' + data.id + '.png';
+
       socket.user = data;
       users.push(socket.user);
 
