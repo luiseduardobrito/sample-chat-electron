@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luiseduardobrito/mc714-2s2016-lista3.git"
+    "url": "git+https://github.com/luiseduardobrito/mc714-1s2016-lista3.git"
   },
   "author": "Luis <luiseduardo14@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luiseduardobrito/mc714-2s2016-lista3/issues"
+    "url": "https://github.com/luiseduardobrito/mc714-1s2016-lista3/issues"
   },
-  "homepage": "https://github.com/luiseduardobrito/mc714-2s2016-lista3#readme",
+  "homepage": "https://github.com/luiseduardobrito/mc714-1s2016-lista3#readme",
   "dependencies": {
     "electron-prebuilt": "^0.37.3",
     "express": "^4.13.4",
