@@ -7,7 +7,8 @@
     "start": "node ./node_modules/.bin/electron .",
     "server": "node ./server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pack:win32": "./node_modules/.bin/electron-packager . \"SampleChat\" --out=build --platform=win32 --arch=ia32 --version=0.29.1 --icon=client/icon.ico --version-string.CompanyName=\"Luis Eduardo Brito\" --version-string.ProductName=\"SampleChat\" --version-string.FileDescription=\"A simple socket.io sample backed by Electron platform\" --asar=true",
+    "pack:all": "npm run pack:win32 && npm run pack:darwin",
+    "pack:win32": "./node_modules/.bin/electron-packager . --icon=client/icon.ico --overwrite=true --arch=ia32 --platform=win32  --out=build  --version-string.CompanyName=\"Luis Eduardo Brito\" --version-string.ProductName=\"SampleChat\" --version-string.FileDescription=\"A simple socket.io sample backed by Electron platform\" --asar=true",
     "pack:darwin": "./node_modules/.bin/electron-packager . --icon=./client/icon --overwrite=true --arch=all --platform=darwin --out=build",
     "dist:darwin": "rm build/**.dmg && ./node_modules/.bin/appdmg ./config/appdmg.json build/SampleChat.dmg -v",
     "postinstall": "./node_modules/.bin/electron-rebuild && ./node_modules/.bin/bower install"
