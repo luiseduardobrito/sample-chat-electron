@@ -111,3 +111,6 @@ crashlytics-build.properties
 
 # Bower components
 client/components
+
+# Electron Build
+build/samplechat-darwin-x64/
