@@ -14,7 +14,7 @@ You can test the chat application using the precompiled binaries. They all point
 
 Portable Executable for Windows (.exe) is coming soon.
 
-### Open Source Dependencies
+### Special Thanks
 
 Desktop app client UI by David ([@retyui](https://twitter.com/retyui))
 
@@ -26,8 +26,9 @@ Adorable Avatars by Adorable.io ([@adorableio](https://twitter.com/adorableio))
 - [Repository on GitHub](https://github.com/adorableio/adorable-avatars)
 - [License (MIT)](https://raw.githubusercontent.com/adorableio/adorable-avatars/master/LICENSE)
 
-[Start Bootstrap Landing Page](http://startbootstrap.com/template-overviews/landing-page/) by [Blackrock Digital](http://blackrockdigital.io/)
+Start Bootstrap Landing Page by [Blackrock Digital](http://blackrockdigital.io/)
 
+- [Homepage](http://startbootstrap.com/template-overviews/landing-page/)
 - [Repository on GitHub](https://github.com/BlackrockDigital/startbootstrap-landing-page)
 - [License (MIT)](https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
 
@@ -37,3 +38,7 @@ App Icon: Hipchat / Flat OSX Icons by drslash
 
 ### Author
 - Luis Eduardo Brito (RA138760) <[luis.brito@students.ic.unicamp.br](mailto:luis.brito@students.ic.unicamp.br)>
+
+### License
+
+This project is fully open, backed by the MIT License. For further information, checkout de [full license text](./LICENSE).
