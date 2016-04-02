@@ -59,6 +59,25 @@ App Icon: Hipchat / Flat OSX Icons by drslash
 - [License (CC BY-NC 4.0)](https://github.com/dr-slash/icons-flat-osx/blob/master/LICENSE.md)
 
 
+### Roadmap
+
+- **v0.0.2**
+    - Notifications for incoming messages
+    - Build sources for Linux major distributions: Ubuntu and Fedora
+    - Change server in the initialization using ENVs or command line arguments
+    - Running a server locally within a dedicated Window
+    - Settings window for handling user profile and server configuration
+
+- **v0.0.3**
+    - Build scripts for creating Rar SFX files for Windows from NPM command line.
+    - Build scripts for creating Ubuntu deb files
+    - Multiple rooms in single server
+
+- **v0.0.4**
+    - Persistent user accounts based on credentials or hash
+    - Multiple node servers forming a single network
+
+
 ### Author
 - Luis Eduardo Brito (RA138760) <[luis.brito@students.ic.unicamp.br](mailto:luis.brito@students.ic.unicamp.br)>
 
