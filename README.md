@@ -3,7 +3,7 @@ Socket.io based chat server and clients, implemented in NodeJS for the Distribut
 
 Inspired in the [Example Chat Application](http://chat.socket.io) from the [Socket.io Official Documentation](http://socket.io/get-started/chat/).
 
-Checkout the [Live preview (coming soon, hosted in Heroku)](https://radiant-river-70847.herokuapp.com/ )
+Checkout the [Sample Chat Server (hosted in Heroku)](https://radiant-river-70847.herokuapp.com/api)
 
 **Features**:
 - Fully features single room chat application, based on a master Server and several slave Clients.
