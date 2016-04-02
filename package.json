@@ -1,7 +1,7 @@
 {
   "name": "mc714-1s2016-lista3",
   "version": "0.0.1",
-  "description": "Socket.io based chat server and client, implemented in NodeJS ",
+  "description": "Socket.io based chat server and client, implemented in NodeJS",
   "main": "app.js",
   "scripts": {
     "start": "node ./node_modules/.bin/electron .",

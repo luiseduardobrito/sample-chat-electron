@@ -1,20 +1,22 @@
 var pkg = require('../package');
 var hat = require('hat');
-
-// Setup basic express server
 var express = require('express');
+var path = require('path');
+
 var app = express();
+
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || require('../config/default').port || 3000;
 
 try {
+
   server.listen(port, function () {
-    console.log('Server listening at port %d', port);
+    console.log('[server] listening at port %d', port);
   });
 
   // Routing
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(path.join(__dirname, '../landing')));
 
   // Chatroom
   var room = {
@@ -112,7 +114,7 @@ try {
 
     var timestamp = Date.now();
 
-    app.get('/', function (req, res) {
+    app.get('/api', function (req, res) {
 
       var info = JSON.parse(JSON.stringify(pkg));
 

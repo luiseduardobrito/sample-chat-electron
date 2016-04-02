@@ -18,6 +18,10 @@ Adorable Avatars by Adorable.io ([@adorableio](https://twitter.com/adorableio))
 - [Repository on GitHub](https://github.com/adorableio/adorable-avatars)
 - [License (MIT)](https://raw.githubusercontent.com/adorableio/adorable-avatars/master/LICENSE)
 
+[Start Bootstrap Landing Page](http://startbootstrap.com/template-overviews/landing-page/) by [Blackrock Digital](http://blackrockdigital.io/)
+
+- [Repository on GitHub](https://github.com/BlackrockDigital/startbootstrap-landing-page)
+- [License (MIT)](https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
 
 ### Author
 - Luis Eduardo Brito (RA138760) <[luis.brito@students.ic.unicamp.br](mailto:luis.brito@students.ic.unicamp.br)>
