@@ -18,7 +18,7 @@ Checkout the [Sample Chat Server (hosted in Heroku)](https://radiant-river-70847
 **Chat Specs**:
 - Real-time bidirectional event-based communication based on [Socket.io](https://github.com/socketio/socket.io)
 - WebSockets implementation backed by [Engine.io](https://github.com/socketio/engine.io)
-- Fallbacks to: ´´´flashsocket´´´, ´´´htmlfile´´´, ´´´xhr-polling´´´, ´´´jsonp-polling´´´
+- Fallbacks to: ```flashsocket```, ```htmlfile```,  ```xhr-polling```, ```jsonp-polling```
 
 #### Screenshots
 Sample binaries running on Mac OSX and Windows 10:
