@@ -5,8 +5,8 @@ Inspired in the [Example Chat Application](http://chat.socket.io) from the [Sock
 
 Checkout the [Live preview (coming soon, hosted in Heroku)](https://radiant-river-70847.herokuapp.com/ )
 
-<img src="landing/img/screen.png" alt="Screenshot at OSX" style="width: 40%"/>
-<img src="landing/img/screen-win.png" alt="Screenshot at Windows" style="width: 40%"/>
+<img src="landing/img/screen.png" alt="Screenshot at OSX" width="40%"/>
+<img src="landing/img/screen-win.png" alt="Screenshot at Windows" width="40%"/>
 
 ### Download Sample Binaries
 You can test the chat application using the precompiled binaries. They all point to the [Sample Server hosted in Heroku](https://radiant-river-70847.herokuapp.com/api). To connect to your own server instance you'll need to build from the source. It's in the roadmap a simple command line script to make all the hard work for you.
