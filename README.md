@@ -32,8 +32,6 @@ You can test the chat application using the precompiled binaries. They all point
 - [Package for OSX (.dmg)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.dmg?raw=true)
 - [Portable Package for Windows (.exe)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.exe?raw=true)
 
-Portable Executable for Windows (.exe) is coming soon.
-
 ### Open Source Dependencies
 
 This project was only possible because the work of thousands of independent developers and organizations. The full dependencies are listed in the [package.json](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/package.json) and [bower.json](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/bower.json) files, but I want to specially thank:
