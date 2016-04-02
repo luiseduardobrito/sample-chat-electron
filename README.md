@@ -5,9 +5,23 @@ Inspired in the [Example Chat Application](http://chat.socket.io) from the [Sock
 
 Checkout the [Live preview (coming soon, hosted in Heroku)](https://radiant-river-70847.herokuapp.com/ )
 
+**Features**:
+- Fully features single room chat application, based on a master Server and several slave Clients.
+- Online/offline and Typing real time updates
+- Multiple users in multiple windows easier testing
+
+**Core Technologies**:
+- [Server](https://github.com/luiseduardobrito/mc714-1s2016-lista3/tree/master/server): NodeJS, Express and Socket.io
+- [Client](https://github.com/luiseduardobrito/mc714-1s2016-lista3/tree/master/client): Electron, Socket.io and AngularJS
+- [Landing](https://github.com/luiseduardobrito/mc714-1s2016-lista3/tree/master/landing): NodeJS, Bootstrap and jQuery
+
+**Chat Specs**:
+- Real-time bidirectional event-based communication based on [Socket.io](https://github.com/socketio/socket.io)
+- WebSockets implementation backed by [Engine.io](https://github.com/socketio/engine.io)
+- Fallbacks to: ´´´flashsocket´´´, ´´´htmlfile´´´, ´´´xhr-polling´´´, ´´´jsonp-polling´´´
+
 #### Screenshots
 Sample binaries running on Mac OSX and Windows 10:
-
 
 <img src="landing/img/screen.png" alt="Screenshot at OSX" width="50%"/>
 <img src="landing/img/screen-win.png" alt="Screenshot at Windows" width="50%"/>
