@@ -34,7 +34,10 @@ You can test the chat application using the precompiled binaries. They all point
 
 Portable Executable for Windows (.exe) is coming soon.
 
-### Special Thanks
+### Open Source Dependencies
+
+This project was only possible because the work of thousands of independent developers and organizations. The full dependencies are listed in the [package.json](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/package.json) and [bower.json](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/bower.json) files, but I want to specially thank:
+
 
 Desktop app client UI by David ([@retyui](https://twitter.com/retyui))
 
@@ -55,6 +58,8 @@ Start Bootstrap Landing Page by [Blackrock Digital](http://blackrockdigital.io/)
 App Icon: Hipchat / Flat OSX Icons by drslash
 
 - [Repository on GitHub](https://github.com/dr-slash/icons-flat-osx)
+- [License (CC BY-NC 4.0)](https://github.com/dr-slash/icons-flat-osx/blob/master/LICENSE.md)
+
 
 ### Author
 - Luis Eduardo Brito (RA138760) <[luis.brito@students.ic.unicamp.br](mailto:luis.brito@students.ic.unicamp.br)>
