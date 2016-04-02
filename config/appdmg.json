@@ -1,0 +1,20 @@
+{
+  "title": "Sample Chat",
+  "icon": "../client/icon.icns",
+  "background": "../client/background.jpg",
+  "icon-size": 80,
+  "contents": [
+    {
+      "x": 440,
+      "y": 150,
+      "type": "link",
+      "path": "/Applications"
+    },
+    {
+      "x": 120,
+      "y": 150,
+      "type": "file",
+      "path": "../build/samplechat-darwin-x64/samplechat.app"
+    }
+  ]
+}
