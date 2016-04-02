@@ -7,6 +7,13 @@ Checkout the [Live preview (coming soon, hosted in Heroku)](https://radiant-rive
 
 ![Sample Chat Screenshoot](landing/img/screen.png)
 
+### Download Sample Binaries
+You can test the chat application using the precompiled binaries. They all point to the [Sample Server hosted in Heroku](https://radiant-river-70847.herokuapp.com/api). To connect to your own server instance you'll need to build from the source. It's in the roadmap a simple command line script to make all the hard work for you.
+
+- [Package for OSX (.dmg)](build/SampleChat.dmg)
+
+Portable Executable for Windows (.exe) is coming soon.
+
 ### Open Source Dependencies
 
 Desktop app client UI by David ([@retyui](https://twitter.com/retyui))
