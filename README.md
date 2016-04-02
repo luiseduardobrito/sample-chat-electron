@@ -83,4 +83,4 @@ App Icon: Hipchat / Flat OSX Icons by drslash
 
 ### License
 
-This project is fully open, backed by the MIT License. For further information, checkout de [full license text](./LICENSE).
+This project is fully open in the terms of the  MIT License. For further information, checkout de [full license text](./LICENSE).
