@@ -88,6 +88,8 @@ try {
         typing: data.typing
       });
 
+      ack({typing: data.typing});
+
       // Log the user connected
       console.log('[user.typing] ' + socket.user.name + (data.typing ? ' is' : ' stopped') + ' typing (#' + socket.user.id + ')');
 

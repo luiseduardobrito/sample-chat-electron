@@ -1,5 +1,5 @@
 {
-  "name": "samplechat",
+  "name": "sample-chat-electron",
   "description": "Socket.io based chat server and client, implemented in NodeJS",
   "main": "app.js",
   "authors": [
