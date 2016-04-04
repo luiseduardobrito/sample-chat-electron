@@ -1,5 +1,5 @@
-# mc714-1s2016-lista3
-Socket.io based chat server and clients, implemented in NodeJS for the Distributed Systems course (MC714 1s2016) with Prof. Leandro Villas.
+# sample-chat-electron
+Socket.io based chat server and clients, implemented in NodeJS for the Distributed Systems Course (MC714 1s2016), [Prof. Leandro Villas](http://wwww.ic.unicamp.br/~leandro) in the [Institute of Computing, UNICAMP](http://ic.unicamp.br/en).
 
 Inspired in the [Example Chat Application](http://chat.socket.io) from the [Socket.io Official Documentation](http://socket.io/get-started/chat/).
 
