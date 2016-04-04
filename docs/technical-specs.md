@@ -7,10 +7,12 @@ Socket.io based chat server and clients, implemented in NodeJS for the Distribut
 ## Technical Specification
 
 ### Introduction
+// TODO
 
 ### Dependencies
 
 The project is based on JavaScript technologies, built under the V8 interpreter, both for the Server and the Client.
+
 
 **Main Server**
 
@@ -18,11 +20,15 @@ The Server is in plain NodeJS, a single file located at ```server/index.js```. I
 
 At this time, because this project has educational purposes, there's only one single global room, where all the users chat at the same time. To handle multiple rooms right now, you may need to run several servers. Although they are very small and lightweight, this may not be the best approach, manly because there's a lot of possible point of failures that were not impelemented to handle things distributively. There a planned update in the [Roadmap](../README.md) to fix all this issues using a Redis cache for the user credentials and Socket events.
 
+
 **Electron Client**
 
 The Client is based on the [Electron](http://electron.atom.io) platform, by [GitHub](https://github.com), that powers its advanced file editor [Atom](https://atom.io). It's basically a hybrid platform to create Desktop Apps with full Desktop integration with all the major platforms, that renders HTML using the [Chromium's WebKit](http://chromium.org). That enables it to, from the same HTML, CSS and JS project, distribute it to Windows, Mac and Linux.
 
 All of the resources used in the client are open source, and openly available at the Web. Unfortunately, the main goal here it to explain what's going on in the sockets, so for further information about the UI, Icons and other resources used in the client refer to the [Readme](../README.md) of the project.
+
+
+
 
 ### Socket Events Reference
 
@@ -48,6 +54,7 @@ Example for an existing user authentication:
 }
 ```
 
+
 #### user.typing
 Sets the user typing state, ```true``` if is currently typing, ```false``` if not.
 
@@ -63,14 +70,18 @@ Example for a user that is typing:
 
 #### Events sent by the Server
 
+
 ##### user.joined
 // TODO
+
 
 ##### user.left
 // TODO
 
+
 ##### user.typing
 // TODO
+
 
 ##### message.received
 
