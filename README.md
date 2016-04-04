@@ -5,6 +5,22 @@ Inspired in the [Example Chat Application](http://chat.socket.io) from the [Sock
 
 Checkout the [Sample Chat Server (hosted in Heroku)](https://radiant-river-70847.herokuapp.com/api)
 
+#### Screenshots
+Sample binaries running on Mac OSX and Windows 10:
+
+<img src="landing/img/screen.png" alt="Screenshot at OSX" width="50%"/>
+<img src="landing/img/screen-win.png" alt="Screenshot at Windows" width="50%"/>
+
+
+### Download Sample Binaries
+You can test the chat application using the precompiled binaries. They all point to the [Sample Server hosted in Heroku](https://radiant-river-70847.herokuapp.com/api). To connect to your own server instance you'll need to build from the source. It's in the roadmap a simple command line script to make all the hard work for you.
+
+- [Package for OSX (.dmg)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.dmg?raw=true)
+- [Portable Package for Windows (.exe)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.exe?raw=true)
+
+
+#### Specification
+
 **Features**:
 - Fully features single room chat application, based on a master Server and several slave Clients.
 - Online/offline and Typing real time updates
@@ -20,17 +36,8 @@ Checkout the [Sample Chat Server (hosted in Heroku)](https://radiant-river-70847
 - WebSockets implementation backed by [Engine.io](https://github.com/socketio/engine.io)
 - Fallbacks to: ```flashsocket```, ```htmlfile```,  ```xhr-polling```, ```jsonp-polling```
 
-#### Screenshots
-Sample binaries running on Mac OSX and Windows 10:
+For more technical details, refer to the [Technical Specification](./docs/technical-specs.md).
 
-<img src="landing/img/screen.png" alt="Screenshot at OSX" width="50%"/>
-<img src="landing/img/screen-win.png" alt="Screenshot at Windows" width="50%"/>
-
-### Download Sample Binaries
-You can test the chat application using the precompiled binaries. They all point to the [Sample Server hosted in Heroku](https://radiant-river-70847.herokuapp.com/api). To connect to your own server instance you'll need to build from the source. It's in the roadmap a simple command line script to make all the hard work for you.
-
-- [Package for OSX (.dmg)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.dmg?raw=true)
-- [Portable Package for Windows (.exe)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.exe?raw=true)
 
 ### Open Source Dependencies
 
@@ -81,6 +88,6 @@ App Icon: Hipchat / Flat OSX Icons by drslash
 ### Author
 - Luis Eduardo Brito (RA138760) <[luis.brito@students.ic.unicamp.br](mailto:luis.brito@students.ic.unicamp.br)>
 
-### License
 
+### License
 This project is fully open in the terms of the  MIT License. For further information, checkout de [full license text](./LICENSE).
