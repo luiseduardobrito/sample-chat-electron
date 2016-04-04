@@ -19,7 +19,8 @@ You can test the chat application using the precompiled binaries. They all point
 - [Portable Package for Windows (.exe)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.exe?raw=true)
 
 
-#### Specification
+### Documentation
+
 
 **Features**:
 - Fully features single room chat application, based on a master Server and several slave Clients.
@@ -36,7 +37,7 @@ You can test the chat application using the precompiled binaries. They all point
 - WebSockets implementation backed by [Engine.io](https://github.com/socketio/engine.io)
 - Fallbacks to: ```flashsocket```, ```htmlfile```,  ```xhr-polling```, ```jsonp-polling```
 
-For more technical details, refer to the [Technical Specification](./docs/technical-specs.md).
+The full JSDoc Specification is planned in the [Roadmap](#roadmap). For more technical details, refer to the [Technical Specification](./docs/technical-specs.md).
 
 
 ### Open Source Dependencies
@@ -76,6 +77,7 @@ App Icon: Hipchat / Flat OSX Icons by drslash
     - Settings window for handling user profile and server configuration
 
 - **v0.0.3**
+    - Automated buld system based on Gulp for handling deploy, testes and docs
     - Build scripts for creating Rar SFX files for Windows from NPM command line.
     - Build scripts for creating Ubuntu deb files
     - Multiple rooms in single server
@@ -83,6 +85,7 @@ App Icon: Hipchat / Flat OSX Icons by drslash
 - **v0.0.4**
     - Persistent user accounts based on credentials or hash
     - Multiple node servers forming a single network
+    - Unit testing in the server interface
 
 
 ### Author
