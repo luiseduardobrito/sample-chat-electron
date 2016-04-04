@@ -1,26 +1,5 @@
 # sample-chat-electron
-Socket.io based chat server and clients, implemented in NodeJS for the Distributed Systems Course (MC714 1s2016), [Prof. Leandro Villas](http://wwww.ic.unicamp.br/~leandro) in the [Institute of Computing, UNICAMP](http://ic.unicamp.br/en).
-
-Inspired in the [Example Chat Application](http://chat.socket.io) from the [Socket.io Official Documentation](http://socket.io/get-started/chat/).
-
-Checkout the [Sample Chat Server (hosted in Heroku)](https://radiant-river-70847.herokuapp.com/api)
-
-#### Screenshots
-Sample binaries running on Mac OSX and Windows 10:
-
-<img src="landing/img/screen.png" alt="Screenshot at OSX" width="50%"/>
-<img src="landing/img/screen-win.png" alt="Screenshot at Windows" width="50%"/>
-
-
-### Download Sample Binaries
-You can test the chat application using the precompiled binaries. They all point to the [Sample Server hosted in Heroku](https://radiant-river-70847.herokuapp.com/api). To connect to your own server instance you'll need to build from the source. It's in the roadmap a simple command line script to make all the hard work for you.
-
-- [Package for OSX (.dmg)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.dmg?raw=true)
-- [Portable Package for Windows (.exe)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.exe?raw=true)
-
-
-### Documentation
-
+Socket.io based chat server and clients, implemented in NodeJS for the Distributed Systems Course (MC714 1s2016), [Prof. Leandro Villas](http://wwww.ic.unicamp.br/~leandro) in the [Institute of Computing, UNICAMP](http://ic.unicamp.br/en). Inspired in the [Example Chat Application](http://chat.socket.io) from the [Socket.io Official Documentation](http://socket.io/get-started/chat/).
 
 **Features**:
 - Fully features single room chat application, based on a master Server and several slave Clients.
@@ -37,6 +16,23 @@ You can test the chat application using the precompiled binaries. They all point
 - WebSockets implementation backed by [Engine.io](https://github.com/socketio/engine.io)
 - Fallbacks to: ```flashsocket```, ```htmlfile```,  ```xhr-polling```, ```jsonp-polling```
 
+Checkout the [Sample Chat Server (hosted in Heroku)](https://radiant-river-70847.herokuapp.com/api).
+
+#### Screenshots
+Sample binaries running on Mac OSX and Windows 10:
+
+<img src="landing/img/screen.png" alt="Screenshot at OSX" width="50%"/>
+<img src="landing/img/screen-win.png" alt="Screenshot at Windows" width="50%"/>
+
+
+### Download Sample Binaries
+You can test the chat application using the precompiled binaries. They all point to the [Sample Server hosted in Heroku](https://radiant-river-70847.herokuapp.com/api). To connect to your own server instance you'll need to build from the source. It's in the roadmap a simple command line script to make all the hard work for you.
+
+- [Package for OSX (.dmg)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.dmg?raw=true)
+- [Portable Package for Windows (.exe)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.exe?raw=true)
+
+
+### Documentation
 The full JSDoc Specification is planned in the [Roadmap](#roadmap). For more technical details, refer to the [Technical Specification](./docs/technical-specs.md).
 
 
