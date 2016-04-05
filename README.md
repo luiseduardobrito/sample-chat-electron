@@ -7,9 +7,9 @@ Socket.io based chat server and clients, implemented in NodeJS for the Distribut
 - Multiple users in multiple windows easier testing
 
 **Core Technologies**:
-- [Server](https://github.com/luiseduardobrito/mc714-1s2016-lista3/tree/master/server): NodeJS, Express and Socket.io
-- [Client](https://github.com/luiseduardobrito/mc714-1s2016-lista3/tree/master/client): Electron, Socket.io and AngularJS
-- [Landing](https://github.com/luiseduardobrito/mc714-1s2016-lista3/tree/master/landing): NodeJS, Bootstrap and jQuery
+- [Server](https://github.com/luiseduardobrito/sample-chat-electron/tree/master/server): NodeJS, Express and Socket.io
+- [Client](https://github.com/luiseduardobrito/sample-chat-electron/tree/master/client): Electron, Socket.io and AngularJS
+- [Landing](https://github.com/luiseduardobrito/sample-chat-electron/tree/master/landing): NodeJS, Bootstrap and jQuery
 
 **Chat Specs**:
 - Real-time bidirectional event-based communication based on [Socket.io](https://github.com/socketio/socket.io)
@@ -28,8 +28,8 @@ Sample binaries running on Mac OSX and Windows 10:
 ### Download Sample Binaries
 You can test the chat application using the precompiled binaries. They all point to the [Sample Server hosted in Heroku](https://radiant-river-70847.herokuapp.com/api). To connect to your own server instance you'll need to build from the source. It's in the roadmap a simple command line script to make all the hard work for you.
 
-- [Package for OSX (.dmg)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.dmg?raw=true)
-- [Portable Package for Windows (.exe)](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/build/SampleChat.exe?raw=true)
+- [Package for OSX (.dmg)](https://github.com/luiseduardobrito/sample-chat-electron/blob/master/build/SampleChat.dmg?raw=true)
+- [Compressed files for Windows (.zip)](https://github.com/luiseduardobrito/sample-chat-electron/blob/master/build/SampleChat.exe?raw=true)
 
 
 ### Documentation
@@ -38,7 +38,7 @@ The full JSDoc Specification is planned in the [Roadmap](#roadmap). For more tec
 
 ### Open Source Dependencies
 
-This project was only possible because the work of thousands of independent developers and organizations. The full dependencies are listed in the [package.json](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/package.json) and [bower.json](https://github.com/luiseduardobrito/mc714-1s2016-lista3/blob/master/bower.json) files, but I want to specially thank:
+This project was only possible because the work of thousands of independent developers and organizations. The full dependencies are listed in the [package.json](https://github.com/luiseduardobrito/sample-chat-electron/blob/master/package.json) and [bower.json](https://github.com/luiseduardobrito/sample-chat-electron/blob/master/bower.json) files, but I want to specially thank:
 
 
 Desktop app client UI by David ([@retyui](https://twitter.com/retyui))
