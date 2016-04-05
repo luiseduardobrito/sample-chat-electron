@@ -71,26 +71,87 @@ Example for a user that is typing:
 
 
 #### user.joined
-// TODO
+Sent whenever a new user join the chat room.
+
+**Acknowledgement**: None
+
+Example for a new user named John:
+```json
+{
+  "user": {
+    "id": "Hc8yVZujX9YRWAYzK45NgSDh",
+    "name": "John Doe"
+  },
+  "users": ["..."],
+  "messages": ["..."]
+}
+```
 
 
 #### user.left
-// TODO
+Sent whenever an existing user leaves the chat room.
+
+**Acknowledgement**: None
+
+Example for an existing user named John:
+```json
+{
+  "user": {
+    "id": "Hc8yVZujX9YRWAYzK45NgSDh",
+    "name": "John Doe"
+  },
+  "users": ["..."],
+  "messages": ["..."]
+}
+```
 
 
 #### user.typing
-// TODO
+Sent whenever an existing user changes its *typing* state.
+
+**Acknowledgement**: None
+
+Example for a new user named John:
+```json
+{
+  "user": {
+    "id": "Hc8yVZujX9YRWAYzK45NgSDh",
+    "name": "John Doe"
+  },
+  "typing": true
+}
+```
 
 
 #### message.received
-// TODO
+Sent whenever an existing user sends a message to the chat room.
+
+**Acknowledgement**: None
+
+Example for an existing user named John saying "hey folks!":
+```json
+{
+  "user": {
+    "id": "Hc8yVZujX9YRWAYzK45NgSDh",
+    "name": "John Doe"
+  },
+  "message": {
+    "id": "M2UPjzqMZhqVXnJjZZ39NCwy",
+    "body": "hey folks!",
+    "timestamp": 1459823556686
+  }
+}
+```
 
 
 ### Events sent by System
 
-### connect
-// TODO
+#### connect
+Sent whenever the user is connected to the Socket.io server, not necessarily to the chat room itself.
 
-### disconnect
-// TODO
+#### disconnect
+Sent whenever the user is disconnected to the Socket.io server.
 
+
+
+For further information about the Socket.io System events, refer to the [official docs](http://socket.io/docs/client-api/#manager(url:string,-opts:object)).
