@@ -6,9 +6,6 @@ Socket.io based chat server and clients, implemented in NodeJS for the Distribut
 
 ## Technical Specification
 
-### Introduction
-// TODO
-
 ### Dependencies
 
 The project is based on JavaScript technologies, built under the V8 interpreter, both for the Server and the Client.
