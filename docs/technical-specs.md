@@ -29,12 +29,11 @@ All of the resources used in the client are open source, and openly available at
 
 
 
+## Socket Events Reference
 
-### Socket Events Reference
+### Events sent by the Client
 
-#### Events sent by the Client
-
-##### user.login
+#### user.login
 Authenticates an user in the chat room. If the user is new, only the ```name``` is required. To authenticates as an existing user, you may pass along the id provided in the first login response.
 
 **Acknowledgement**: ```{ name, id }```
@@ -68,28 +67,30 @@ Example for a user that is typing:
 ```
 
 
-#### Events sent by the Server
+### Events sent by the Server
 
 
-##### user.joined
+#### user.joined
 // TODO
 
 
-##### user.left
+#### user.left
 // TODO
 
 
-##### user.typing
+#### user.typing
 // TODO
 
 
-##### message.received
+#### message.received
+// TODO
 
 
-**System Events**
-- connect
-- disconnect
+### Events sent by System
 
+### connect
+// TODO
 
-
+### disconnect
+// TODO
 
