@@ -113,4 +113,5 @@ crashlytics-build.properties
 client/components
 
 # Electron Build
-build/samplechat-*
+build/samplechat*
+build/sample-chat-electron*
