@@ -1,6 +1,8 @@
 # sample-chat-electron
 Socket.io based chat server and clients, implemented in NodeJS for the Distributed Systems Course (MC714 1s2016), [Prof. Leandro Villas](http://wwww.ic.unicamp.br/~leandro) in the [Institute of Computing, UNICAMP](http://ic.unicamp.br/en). Inspired in the [Example Chat Application](http://chat.socket.io) from the [Socket.io Official Documentation](http://socket.io/get-started/chat/).
 
+See the [blog post](https://luiseduardobrito.me/blog/creating-electron-chat-using-socket-io) about the project for the step-by-step guide.
+
 **Features**:
 - Fully features single room chat application, based on a master Server and several slave Clients.
 - Online/offline and Typing real time updates
