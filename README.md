@@ -75,8 +75,8 @@ App Icon: Hipchat / Flat OSX Icons by drslash
     - Settings window for handling user profile and server configuration
 
 - **v0.0.3**
-    - Automated buld system based on Gulp for handling deploy, testes and docs
-    - Build scripts for creating Rar SFX files for Windows from NPM command line.
+    - Automated buld system based on Gulp for handling deploy, tests and jsdocs
+    - Build scripts for creating Rar SFX auto installer files for Windows from NPM command line.
     - Build scripts for creating Ubuntu deb files
     - Multiple rooms in single server
 
