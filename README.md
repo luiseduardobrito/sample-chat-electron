@@ -83,6 +83,7 @@ App Icon: Hipchat / Flat OSX Icons by drslash
 - **v0.0.4**
     - Persistent user accounts based on credentials or hash
     - Multiple node servers forming a single network
+    - Direct file transfer with progress
     - Unit testing in the server interface
 
 
